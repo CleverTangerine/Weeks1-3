@@ -1,14 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.U2D;
 
 public class FirstScript : MonoBehaviour
 {
     public float speed = 0.01f;
+    public Sprite [] sprites;
+    public SpriteRenderer spriteRenderer;
+    public Spawner thingThatSpawnedMe;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        spriteRenderer.color = Random.ColorHSV();
+        if (sprites.Length > 0)
+        {
+            spriteRenderer.sprite = sprites[Random.Range(0, sprites.Length - 1)];
+        }
     }
 
     // Update is called once per frame
