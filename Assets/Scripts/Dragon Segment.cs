@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class DragonHead : MonoBehaviour
 {
-    public float curveLength = 1;
     [Range(0, 1)]
     public float s;
     public AnimationCurve sway;
@@ -31,12 +30,12 @@ public class DragonHead : MonoBehaviour
         mousePos = Input.mousePosition;
         mouseX = mousePos.x / Screen.width;
         mouseY = mousePos.y / Screen.height;
-        s = (s + 0.007f + Mathf.Abs(offset) / 1000) % 1;
-        b = (s + 0.01f + Mathf.Abs(offset) / 1000) % 1;
-        //Debug.Log(mousePos);
+        s = (s + 0.7f * Time.deltaTime + Mathf.Abs(offset) / 2000) % 1;
+        b = (s + 0.76f * Time.deltaTime + Mathf.Abs(offset) / 2000) % 1;
+        //Debug.Log(Screen.width);
         Vector2 pos = transform.position;
         pos.x = (sway.Evaluate(s) + mouseX * 2) + offset;
-        pos.y = bounce.Evaluate(b) + mouseY * 2 * flip;
+        pos.y = bounce.Evaluate(b) + mouseY * 2 * flip - 2;
         transform.position = pos;
     }
 }

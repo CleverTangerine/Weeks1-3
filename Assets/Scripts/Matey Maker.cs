@@ -25,7 +25,7 @@ public class MateyMaker : MonoBehaviour
 
     void recruitment()
     {
-        LandLubber[] = null;
+        //LandLubber[] = null;
         roundSetup = false;
     }
 }
